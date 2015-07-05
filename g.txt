@@ -1,0 +1,16 @@
+int(100)
+string(5) "24622"
+int(200)
+string(5) "24622"
+int(300)
+string(5) "24622"
+int(400)
+string(5) "24622"
+int(500)
+string(5) "24622"
+int(600)
+string(5) "24622"
+int(700)
+string(5) "24622"
+int(800)
+string(5) "24622"

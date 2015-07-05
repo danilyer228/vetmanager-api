@@ -1,73 +1,57 @@
 <?php
 
-class Vetmanager
-{
+class Vetmanager {
+
     private $api_key;
-    private $api_endpoint = 'https://<dc>.api.mailchimp.com/2.0';
-    private $verify_ssl   = false;
+    private $api_url = 'https://<dc>.api.mailchimp.com/2.0';
 
     /**
      * Create a new instance
      * @param string $api_key Your MailChimp API key
      */
-    public function __construct($api_key)
-    {
+    public function __construct($domain, $api_key) {
         $this->api_key = $api_key;
-        list(, $datacentre) = explode('-', $this->api_key);
-        $this->api_endpoint = str_replace('<dc>', $datacentre, $this->api_endpoint);
+        $this->api_url = "http://" . $domain . "/rest/api/";
     }
 
-    /**
-     * Call an API method. Every request needs the API key, so that is added automatically -- you don't need to pass it in.
-     * @param  string $method The API method to call, e.g. 'lists/list'
-     * @param  array  $args   An array of arguments to pass to the method. Will be json-encoded for you.
-     * @return array          Associative array of json decoded API response.
-     */
-    public function call($method, $args = array(), $timeout = 10)
-    {
-        return $this->makeRequest($method, $args, $timeout);
-    }
+    public function request($modelName, $pkValue = '', $data = array(), $method = 'GET') {
 
-    /**
-     * Performs the underlying HTTP request. Not very exciting
-     * @param  string $method The API method to be called
-     * @param  array  $args   Assoc array of parameters to be passed
-     * @return array          Assoc array of decoded result
-     */
-    private function makeRequest($method, $args = array(), $timeout = 10)
-    {
-        $args['apikey'] = $this->api_key;
-
-        $url = $this->api_endpoint.'/'.$method.'.json';
-        $json_data = json_encode($args);
-
-        if (function_exists('curl_init') && function_exists('curl_setopt')) {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-            curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $this->verify_ssl);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-            curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
-            $result = curl_exec($ch);
-            curl_close($ch);
-        } else {
-            $result    = file_get_contents($url, null, stream_context_create(array(
-                'http' => array(
-                    'protocol_version' => 1.1,
-                    'user_agent'       => 'PHP-MCAPI/2.0',
-                    'method'           => 'POST',
-                    'header'           => "Content-type: application/json\r\n".
-                                          "Connection: close\r\n" .
-                                          "Content-length: " . strlen($json_data) . "\r\n",
-                    'content'          => $json_data,
-                ),
-            )));
+        $url = $this->api_url . "{$modelName}";
+        if (!empty($pkValue)) {
+            $url.= '/' . $pkValue;
         }
 
-        return $result ? json_decode($result, true) : false;
+        $headers = array('X-REST-API-KEY:' . $this->api_key);
+        $getData = $data;
+       // var_dump($getData);
+        if (is_array($data)) {
+            $data = json_encode($data);
+        } else {
+            $data = (string) $data;
+        }
+
+        $handle = curl_init();
+        
+        //var_dump($url);
+        curl_setopt($handle, CURLOPT_USERAGENT, 'WireCRM Rest API');
+        curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
+        if (in_array($method, array('POST', 'PUT', 'DELETE'))) {
+            curl_setopt($handle, CURLOPT_CUSTOMREQUEST, $method);
+            curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
+        } else if("GET" == $method && !empty($getData)) {
+            $url .= '?' . http_build_query($getData);
+        }
+        curl_setopt($handle, CURLOPT_URL, $url);
+      //  var_dump($url);
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+
+        $data = curl_exec($handle);
+        
+        curl_close($handle);
+//var_dump($data);
+        $array = json_decode($data, true);
+        return $array;
     }
+
 }
