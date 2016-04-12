@@ -1,12 +1,38 @@
 <?php
-require './VetmanagerPrice.php';
 
-//$vetmanager = new Vetmanager('dev.vetmanager.ru', 'c19cff4315cd5c4953db9453aeb87f55');
-//var_dump($vetmanager->request('unit'));
+require_once './Vetmanager.php';
 
-$price = new VetmanagerPrice('manager', 'c19cff4315cd5c4953db9453aeb87f55');
+$number = filter_input(INPUT_GET, 'num');
+$number = '2343';
+if (empty($number)) {
+   exit(); 
+}
 
-//$price = new VetmanagerPrice('dev.vetmanager.ru', 'c19cff4315cd5c4953db9453aeb87f55');
-//$allClients = $price->getAllRecords('client');
-//file_put_contents('t.txt', print_r($allClients, true));
-//var_dump(count($allClients));
+$vetmanager = new Vetmanager('manager', '8035e1b7358df45605413ed649b7847a');
+
+$clearPhones = $vetmanager->request(
+        'clientPhone'
+        , ''
+        , array(
+            'offset' => 0
+            , 'limit' => 1
+            , 'filter' => array(
+                array(
+                    'property' => 'clean_phone'
+                    , 'value' => $number
+                    , "operator" => "like"
+                )
+            )
+        )
+);
+
+
+if (is_array($clearPhones) && !empty($clearPhones) && $clearPhones['success'] && $clearPhones['data']['totalCount'] > 0) {
+    try {
+        $clientID = $clearPhones['data']['clientPhone'][0]['client_id'];
+        $client = $vetmanager->request('client', $clientID);
+        echo $client['data']['client']['first_name']  . " " . $client['data']['client']['last_name'] ; 
+    } catch (Exception $e) {
+        exit();
+    }
+}
