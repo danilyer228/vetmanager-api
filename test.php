@@ -3,7 +3,7 @@
 require_once './Vetmanager.php';
 
 $number = filter_input(INPUT_GET, 'num');
-$number = '2343';
+//$number = '2343';
 if (empty($number)) {
    exit(); 
 }
