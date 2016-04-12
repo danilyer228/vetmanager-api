@@ -1,5 +1,5 @@
 <?php
-//http://wiki.vetmanager.ru/index.php/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:REST_API
+//Документация http://wiki.vetmanager.ru/index.php/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:REST_API
 require_once './Vetmanager.php';
 
 // Получили номер, должен быть в формате чистых чисел 4324234
