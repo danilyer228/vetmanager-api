@@ -11,7 +11,7 @@ class Vetmanager {
      */
     public function __construct($domain, $api_key) {
         $this->api_key = $api_key;
-        $this->api_url = "http://" . $domain . "/rest/api/";
+        $this->api_url = "https://" . $domain . "/rest/api/";
     }
 
     public function request($modelName, $pkValue = '', $data = array(), $method = 'GET') {
@@ -43,13 +43,13 @@ class Vetmanager {
             $url .= '?' . http_build_query($getData);
         }
         curl_setopt($handle, CURLOPT_URL, $url);
-      //  var_dump($url);
+        //var_dump($url);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
 
         $data = curl_exec($handle);
         
         curl_close($handle);
-//var_dump($data);
+        //var_dump($data);
         $array = json_decode($data, true);
         return $array;
     }
