@@ -1,2 +1,2 @@
 # vetmanager-api
-For wor with vetmanager api
+For work with vetmanager api
