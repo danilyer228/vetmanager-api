@@ -1,0 +1,14 @@
+{
+    "name": "otis/vetmanager-api",
+    "description": "Package for work with vetmanager api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Romanichev",
+            "email": "vromanichev24@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
