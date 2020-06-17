@@ -4,5 +4,17 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/vendor/bin/phpstan.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/phpstan/phpstan/phpstan.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/vendor/bin/phpstan.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/phpstan/phpstan/phpstan.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

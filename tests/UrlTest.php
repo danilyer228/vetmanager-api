@@ -18,4 +18,12 @@ class UrlTest extends TestCase
             )
         );
     }
+
+    public function testVetmanagerUrl(): void
+    {
+        $this->assertEquals(
+            'test.vetmanager.ru',
+            strval(new Url('test'))
+        );
+    }
 }
