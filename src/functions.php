@@ -1,9 +1,10 @@
 <?php
 
-namespace Otis22\VetmanagerApi\functions;
+declare(strict_types=1);
 
-use Otis22\VetmanagerApi\Url;
+namespace Otis22\VetmanagerApi;
 
-function url($domainName): Url {
+function url(string $domainName): Url
+{
     return new Url($domainName);
 }

@@ -23,6 +23,6 @@ final class Url
 
     public function __toString(): string
     {
-        return 'https://'. $this->domain . ".vetmanager.ru";
+        return 'https://' . $this->domain . ".vetmanager.ru";
     }
 }

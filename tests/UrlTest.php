@@ -7,6 +7,8 @@ namespace Otis22\VetmanagerApi\Tests;
 use Otis22\VetmanagerApi\Url;
 use PHPUnit\Framework\TestCase;
 
+use function Otis22\VetmanagerApi\url;
+
 class UrlTest extends TestCase
 {
     public function testCreateUrl(): void
@@ -14,7 +16,7 @@ class UrlTest extends TestCase
         $this->assertStringContainsString(
             'Url',
             get_class(
-                new Url('test')
+                url('test')
             )
         );
     }
@@ -22,7 +24,7 @@ class UrlTest extends TestCase
     public function testVetmanagerUrl(): void
     {
         $this->assertEquals(
-            'test.vetmanager.ru',
+            'https://test.vetmanager.ru',
             strval(new Url('test'))
         );
     }
