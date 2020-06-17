@@ -4,25 +4,32 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi;
 
+use Otis22\VetmanagerApi\Host\HostName;
+
 final class Url
 {
     /**
-     * @var string
+     * @var Protocol
      */
-    private $domain;
+    private $protocol;
+    /**
+     * @var HostName
+     */
+    private $hostName;
 
     /**
      * Url constructor.
-     * @param string $domain
+     * @param Protocol $protocol
+     * @param HostName $hostName
      */
-    public function __construct(string $domain)
+    public function __construct(Protocol $protocol, HostName $hostName)
     {
-        $this->domain = $domain;
+        $this->protocol = $protocol;
+        $this->hostName = $hostName;
     }
-
 
     public function __toString(): string
     {
-        return 'https://' . $this->domain . ".vetmanager.ru";
+        return $this->protocol . $this->hostName;
     }
 }
