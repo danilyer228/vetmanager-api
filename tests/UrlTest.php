@@ -14,7 +14,7 @@ class UrlTest extends TestCase
         $this->assertStringContainsString(
             'Url',
             get_class(
-                new Url()
+                new Url('test')
             )
         );
     }

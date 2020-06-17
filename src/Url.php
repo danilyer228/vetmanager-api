@@ -11,10 +11,18 @@ final class Url
      */
     private $domain;
 
-    public function __toString(): string
+    /**
+     * Url constructor.
+     * @param string $domain
+     */
+    public function __construct(string $domain)
     {
-        return $this->domain . "/vetmanager.ru";
+        $this->domain = $domain;
     }
 
 
+    public function __toString(): string
+    {
+        return $this->domain . ".vetmanager.ru";
+    }
 }
