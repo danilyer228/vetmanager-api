@@ -6,6 +6,7 @@ namespace Otis22\VetmanagerApi\Host;
 
 use GuzzleHttp\ClientInterface;
 use Otis22\VetmanagerApi\VetmanagerApiException;
+use Psr\Http\Message\ResponseInterface;
 
 final class HostNameFromGateway implements HostName
 {
@@ -59,26 +60,26 @@ final class HostNameFromGateway implements HostName
     {
         try {
             $response = $this->client->request("GET", $this->hostGatewayUrl());
-            $json = \json_decode(strval($response->getBody()));
-            if (is_null($json)) {
-                throw new \Exception("Invalid json response");
-            }
-            $this->validateResponse($json);
-            return $json->url;
+            return $this->urlFromResponse($response);
         } catch (\Throwable $e) {
             throw new VetmanagerApiException($e->getMessage(), $e->getCode(), $e);
         }
     }
 
-    private function validateResponse(\stdClass $json): void
+    private function urlFromResponse(ResponseInterface $response): string
     {
+        $responseText = strval($response->getBody());
+        $json = \json_decode($responseText);
+        if (is_null($json)) {
+            throw new \Exception("Invalid json response: " . $responseText);
+        }
         if (!filter_var($json->success, FILTER_VALIDATE_BOOLEAN)) {
-            throw new \Exception("Unsuccessful");
+            throw new \Exception("Unsuccessful request: " . $responseText);
         }
-
         if (empty($json->url)) {
-            throw new \Exception('Url is empty');
+            throw new \Exception('Url is empty: ' . $responseText);
         }
+        return $json->url;
     }
 
     private function hostGatewayUrl(): string
