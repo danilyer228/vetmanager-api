@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Tests\Host;
 
-use Otis22\VetmanagerApi\Host\Domain;
+use Otis22\VetmanagerApi\Url\Domain;
 use PHPUnit\Framework\TestCase;
 
 class DomainTest extends TestCase

@@ -1,14 +1,8 @@
 <?php
 
-/**
- * User: otis
- * Date: 17.06.20
- * Time: 14:16
- */
-
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Host;
+namespace Otis22\VetmanagerApi\Url;
 
 final class Domain
 {

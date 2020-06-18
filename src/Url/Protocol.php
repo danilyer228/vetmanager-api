@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi;
+namespace Otis22\VetmanagerApi\Url;
 
 final class Protocol
 {

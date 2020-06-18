@@ -4,41 +4,11 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi;
 
-use Otis22\VetmanagerApi\Host\HostName;
-
-final class Url implements Stringable
+interface Url extends \Stringable
 {
     /**
-     * @var Protocol
-     */
-    private $protocol;
-    /**
-     * @var HostName
-     */
-    private $hostName;
-
-    /**
-     * Url constructor.
-     * @param Protocol $protocol
-     * @param HostName $hostName
-     */
-    public function __construct(Protocol $protocol, HostName $hostName)
-    {
-        $this->protocol = $protocol;
-        $this->hostName = $hostName;
-    }
-
-    /**
-     * For php older than 7.4
+     * Need for php older than 7.4v, because __toString generate fatal Error when throw any Exception
      * @return string
      */
-    public function asString(): string
-    {
-        return $this->protocol . $this->hostName;
-    }
-
-    public function __toString(): string
-    {
-        return $this->asString();
-    }
+    public function asString(): string;
 }

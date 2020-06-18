@@ -8,13 +8,13 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Otis22\VetmanagerApi\Host\BillingUrl;
-use Otis22\VetmanagerApi\Host\Domain;
-use Otis22\VetmanagerApi\Host\HostNameFromGateway;
+use Otis22\VetmanagerApi\Url\BillingApiUrl;
+use Otis22\VetmanagerApi\Url\Domain;
+use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
 use Otis22\VetmanagerApi\VetmanagerApiException;
 use PHPUnit\Framework\TestCase;
 
-final class HostNameFromGatewayTest extends TestCase
+final class UrlFromBillingApiGatewayTest extends TestCase
 {
     public function testHostNameWithValidUrl(): void
     {
@@ -33,10 +33,10 @@ final class HostNameFromGatewayTest extends TestCase
         $handlerStack = HandlerStack::create($mock);
 
         $this->assertEquals(
-            "test.fake.url",
+            "http://test.fake.url",
             strval(
-                new HostNameFromGateway(
-                    new BillingUrl("https://fake.billing.url"),
+                new UrlFromBillingApiGateway(
+                    new BillingApiUrl("https://fake.billing.url"),
                     new Domain('one'),
                     new Client(['handler' => $handlerStack])
                 )
@@ -59,8 +59,8 @@ final class HostNameFromGatewayTest extends TestCase
             )
         ]);
         $handlerStack = HandlerStack::create($mock);
-        $hostName = new HostNameFromGateway(
-            new BillingUrl("https://fake.billing.url"),
+        $hostName = new UrlFromBillingApiGateway(
+            new BillingApiUrl("https://fake.billing.url"),
             new Domain('one'),
             new Client(['handler' => $handlerStack])
         );
@@ -81,8 +81,8 @@ final class HostNameFromGatewayTest extends TestCase
         ]);
         $handlerStack = HandlerStack::create($mock);
         strval(
-            new HostNameFromGateway(
-                new BillingUrl("https://fake.billing.url"),
+            new UrlFromBillingApiGateway(
+                new BillingApiUrl("https://fake.billing.url"),
                 new Domain('one'),
                 new Client(['handler' => $handlerStack])
             )
@@ -100,8 +100,8 @@ final class HostNameFromGatewayTest extends TestCase
         ]);
         $handlerStack = HandlerStack::create($mock);
         strval(
-            new HostNameFromGateway(
-                new BillingUrl("https://fake.billing.url"),
+            new UrlFromBillingApiGateway(
+                new BillingApiUrl("https://fake.billing.url"),
                 new Domain('one'),
                 new Client(['handler' => $handlerStack])
             )
@@ -120,8 +120,8 @@ final class HostNameFromGatewayTest extends TestCase
         ]);
         $handlerStack = HandlerStack::create($mock);
         strval(
-            new HostNameFromGateway(
-                new BillingUrl("https://fake.billing.url"),
+            new UrlFromBillingApiGateway(
+                new BillingApiUrl("https://fake.billing.url"),
                 new Domain('one'),
                 new Client(['handler' => $handlerStack])
             )
