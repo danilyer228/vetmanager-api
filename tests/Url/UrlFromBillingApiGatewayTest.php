@@ -80,13 +80,12 @@ final class UrlFromBillingApiGatewayTest extends TestCase
             )
         ]);
         $handlerStack = HandlerStack::create($mock);
-        strval(
-            new UrlFromBillingApiGateway(
-                new BillingApiUrl("https://fake.billing.url"),
-                new Domain('one'),
-                new Client(['handler' => $handlerStack])
-            )
+        $url = new UrlFromBillingApiGateway(
+            new BillingApiUrl("https://fake.billing.url"),
+            new Domain('one'),
+            new Client(['handler' => $handlerStack])
         );
+        $url->asString();
     }
     public function testHostNameWithUnsuccess(): void
     {
