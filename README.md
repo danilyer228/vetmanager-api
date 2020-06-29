@@ -63,5 +63,5 @@ composer validate && \
 vendor/bin/security-checker security:check && \
 vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && \
 vendor/bin/phpcf tests src && vendor/bin/phpstan analyse --level=max src tests && \
-vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 100
+vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 80
 ```
