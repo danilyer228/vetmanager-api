@@ -13,6 +13,7 @@ final class Domain
 
     /**
      * Domain constructor.
+     *
      * @param string $domain
      */
     public function __construct(string $domain)

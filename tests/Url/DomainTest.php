@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests\Host;
+namespace Otis22\VetmanagerApi\Tests\Url;
 
 use Otis22\VetmanagerApi\Url\Domain;
 use PHPUnit\Framework\TestCase;

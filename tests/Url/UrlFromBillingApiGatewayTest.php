@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests\Host;
+namespace Otis22\VetmanagerApi\Tests\Url;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
@@ -18,7 +18,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
 {
     public function testHostNameWithValidUrl(): void
     {
-        $mock = new MockHandler([
+        $mock = new MockHandler(
+            [
             new Response(
                 200,
                 [],
@@ -29,7 +30,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
                     "success":true
                 }'
             )
-        ]);
+            ]
+        );
         $handlerStack = HandlerStack::create($mock);
 
         $this->assertEquals(
@@ -46,7 +48,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
 
     public function testCacheHostName(): void
     {
-        $mock = new MockHandler([
+        $mock = new MockHandler(
+            [
             new Response(
                 200,
                 [],
@@ -57,7 +60,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
                     "success":true
                 }'
             )
-        ]);
+            ]
+        );
         $handlerStack = HandlerStack::create($mock);
         $hostName = new UrlFromBillingApiGateway(
             new BillingApiUrl("https://fake.billing.url"),
@@ -72,13 +76,15 @@ final class UrlFromBillingApiGatewayTest extends TestCase
     public function testHostNameWithServerError(): void
     {
         $this->expectException(VetmanagerApiException::class);
-        $mock = new MockHandler([
+        $mock = new MockHandler(
+            [
             new Response(
                 500,
                 [],
                 ''
             )
-        ]);
+            ]
+        );
         $handlerStack = HandlerStack::create($mock);
         $url = new UrlFromBillingApiGateway(
             new BillingApiUrl("https://fake.billing.url"),
@@ -90,13 +96,15 @@ final class UrlFromBillingApiGatewayTest extends TestCase
     public function testHostNameWithUnsuccess(): void
     {
         $this->expectException(VetmanagerApiException::class);
-        $mock = new MockHandler([
+        $mock = new MockHandler(
+            [
             new Response(
                 500,
                 [],
                 '{success: false}'
             )
-        ]);
+            ]
+        );
         $handlerStack = HandlerStack::create($mock);
         $url = new UrlFromBillingApiGateway(
             new BillingApiUrl("https://fake.billing.url"),
@@ -109,13 +117,15 @@ final class UrlFromBillingApiGatewayTest extends TestCase
     public function testHostNameWithEmptyUrl(): void
     {
         $this->expectException(VetmanagerApiException::class);
-        $mock = new MockHandler([
+        $mock = new MockHandler(
+            [
             new Response(
                 200,
                 [],
                 '{url: "", success: "true"}'
             )
-        ]);
+            ]
+        );
         $handlerStack = HandlerStack::create($mock);
         $url = new UrlFromBillingApiGateway(
             new BillingApiUrl("https://fake.billing.url"),

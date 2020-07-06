@@ -13,6 +13,7 @@ final class Protocol
 
     /**
      * Protocol constructor.
+     *
      * @param string $protocol
      */
     public function __construct(string $protocol)

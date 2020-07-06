@@ -29,8 +29,9 @@ final class UrlFromBillingApiGateway implements Url
 
     /**
      * UrlFromBillingApiGateway constructor.
-     * @param BillingApiUrl $billingApiUrl
-     * @param Domain $domain
+     *
+     * @param BillingApiUrl   $billingApiUrl
+     * @param Domain          $domain
      * @param ClientInterface $client
      */
     public function __construct(BillingApiUrl $billingApiUrl, Domain $domain, ClientInterface $client)
@@ -76,7 +77,7 @@ final class UrlFromBillingApiGateway implements Url
     }
 
     /**
-     * @param \stdClass $json
+     * @param  \stdClass $json
      * @throws \Exception
      */
     private function validateResponse(\stdClass $json): void

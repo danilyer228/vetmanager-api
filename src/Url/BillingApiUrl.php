@@ -13,6 +13,7 @@ final class BillingApiUrl
 
     /**
      * BillingUrl constructor.
+     *
      * @param string $billingApiUrl
      */
     public function __construct(string $billingApiUrl)

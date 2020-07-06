@@ -7,13 +7,13 @@ If you want stable application for Vetmanager REST API, please use this library
 
 ![GitHub CI](https://github.com/otis22/vetmanager-api/workflows/CI/badge.svg)
 
-#How to use 
+# How to use 
 ## Install
 ```
 composer require otis/vetmanager-api:@dev
 ```
 
-##Basic usage
+## Basic usage
 
 ```
 use function Otis22\VetmanagerApi\url;
@@ -40,28 +40,15 @@ docker exec -it vetmanager-api /bin/bash
 
 ```
 #validate composer json
-composer validate
+composer check-composer
 
-#security check
-vendor/bin/security-checker security:check
-
-#check code style
-vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
-
-#analyze code
-vendor/bin/phpcf tests src && vendor/bin/phpstan analyse --level=max src tests
+#static analyzes and codestyle 
+composer static
 
 #run unit tests
-vendor/bin/phpunit
-
-#run coverage check(need run after phpunit)
-vendor/bin/php-coverage-checker build/logs/clover.xml 100
+composer unit-tests
 
 #run all tests
 
-composer validate && \
-vendor/bin/security-checker security:check && \
-vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && \
-vendor/bin/phpcf tests src && vendor/bin/phpstan analyse --level=max src tests && \
-vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 80
+composer all-tests
 ```
