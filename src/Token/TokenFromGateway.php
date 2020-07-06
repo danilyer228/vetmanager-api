@@ -32,8 +32,8 @@ final class TokenFromGateway implements Token
     /**
      * TokenFromGateway constructor.
      *
-     * @param Credentials     $credentials
-     * @param Url             $url
+     * @param Credentials $credentials
+     * @param Url $url
      * @param ClientInterface $client
      */
     public function __construct(Credentials $credentials, Url $url, ClientInterface $client)
