@@ -5,6 +5,12 @@ declare(strict_types=1);
 namespace Otis22\VetmanagerApi;
 
 use GuzzleHttp\Client;
+use Otis22\VetmanagerApi\Token\AppName;
+use Otis22\VetmanagerApi\Token\Credentials;
+use Otis22\VetmanagerApi\Token\Login;
+use Otis22\VetmanagerApi\Token\LoginPasswordCredentials;
+use Otis22\VetmanagerApi\Token\Password;
+use Otis22\VetmanagerApi\Token\TokenFromGateway;
 use Otis22\VetmanagerApi\Url\BillingApiUrl;
 use Otis22\VetmanagerApi\Url\Domain;
 use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
@@ -26,4 +32,22 @@ function url(string $domainName): Url
 function url_test_env(string $domainName): Url
 {
     return create_url_from_billing_api_gateway($domainName, "https://billing-api-test.kube-dev.vetmanager.cloud/");
+}
+
+function credentials(string $login, string $password, string $app_name): Credentials
+{
+    return new LoginPasswordCredentials(
+        new Login($login),
+        new Password($password),
+        new AppName($app_name)
+    );
+}
+
+function token(Credentials $credentials, Url $url): Token
+{
+    return new TokenFromGateway(
+        $credentials,
+        $url,
+        new Client()
+    );
 }

@@ -13,13 +13,34 @@ If you want stable application for Vetmanager REST API, please use this library
 composer require otis/vetmanager-api:@dev
 ```
 
-## Basic usage
+## Basic usage Url
 
 ```
 use function Otis22\VetmanagerApi\url;
 
 echo url('myclinic') . "\n";
 ```
+
+Where 'myclinic' is first part from your clinic url. $domain.vetmanager.ru
+
+## Basic Usage Token
+
+```
+use function Otis22\VetmanagerApi\url;
+use function Otis22\VetmanagerApi\credentials;
+use function Otis22\VetmanagerApi\token;
+
+$credentials = credentials('login', 'password', 'app_name');
+$url = url('myclinic');
+echo token($credentials, $url) . "\n";
+```
+
+Where:
+
+* 'myclinic' - first part from your clinic url. $domain.vetmanager.ru
+* 'login' - user login
+* 'password' - user password
+* 'app_name' - name application will use this token
 
 # Contributing
 
