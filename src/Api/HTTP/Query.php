@@ -1,7 +1,9 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Api\Auth;
+namespace Otis22\VetmanagerApi\Api\HTTP;
+
 use Otis22\VetmanagerApi\Assocify;
 
 class Query implements Assocify

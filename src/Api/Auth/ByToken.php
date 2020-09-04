@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Api\Auth;
 
@@ -36,7 +37,7 @@ final class ByToken implements Auth
     {
         return [
             'X-APP-NAME' => strval($this->appName),
-            'X-USER-TOKEN'=> strval($this->token)
+            'X-USER-TOKEN' => strval($this->token)
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Api\Auth;
 
@@ -27,5 +28,4 @@ final class ByApiKey implements Auth
             'X-REST-API-KEY' => strval($this->apiKey)
         ];
     }
-
 }

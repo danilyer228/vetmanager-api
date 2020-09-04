@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Api;
-
 
 use Otis22\VetmanagerApi\Stringify;
 use Otis22\VetmanagerApi\VetmanagerApiException;

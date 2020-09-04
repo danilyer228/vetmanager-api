@@ -17,5 +17,4 @@ class ApiKeyTest extends TestCase
             )->asString()
         );
     }
-
 }

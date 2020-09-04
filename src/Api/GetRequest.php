@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Api;
 
-
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
-use Otis22\VetmanagerApi\Api\Auth\Query;
+use Otis22\VetmanagerApi\Api\HTTP\Query;
 use Otis22\VetmanagerApi\Api\HTTP\URI;
+use Otis22\VetmanagerApi\Api\HTTP\Headers;
 
 class GetRequest implements Request
 {
@@ -58,5 +59,4 @@ class GetRequest implements Request
             ]
         );
     }
-
 }

@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Api;
+namespace Otis22\VetmanagerApi\Api\HTTP;
 
-
+use Otis22\VetmanagerApi\Api\Auth;
 use Otis22\VetmanagerApi\Assocify;
 
 class Headers implements Assocify
@@ -20,7 +21,7 @@ class Headers implements Assocify
     /**
      * Headers constructor.
      * @param Auth $auth
-     * @param array $otherHeaders
+     * @param array<string|string> $otherHeaders
      */
     public function __construct(Auth $auth, array $otherHeaders)
     {
@@ -28,9 +29,11 @@ class Headers implements Assocify
         $this->otherHeaders = $otherHeaders;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function asAssoc(): array
     {
-        return array_merge($this->asAssoc(), $this->otherHeaders);
+        return array_merge($this->auth->asAssoc(), $this->otherHeaders);
     }
-
 }
