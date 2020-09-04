@@ -6,7 +6,7 @@ namespace Otis22\VetmanagerApi\Api\Auth;
 use Otis22\VetmanagerApi\Api\Auth;
 use Otis22\VetmanagerApi\Token;
 
-class TokenAuth implements Auth
+final class ByToken implements Auth
 {
     /**
      * @var Token\AppName

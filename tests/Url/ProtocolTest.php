@@ -1,8 +1,7 @@
 <?php
 
-namespace Otis22\VetmanagerApi\Tests;
+namespace Otis22\VetmanagerApi\Url;
 
-use Otis22\VetmanagerApi\Url\Protocol;
 use PHPUnit\Framework\TestCase;
 
 class ProtocolTest extends TestCase

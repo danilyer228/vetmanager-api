@@ -5,7 +5,7 @@ namespace Otis22\VetmanagerApi\Api\Auth;
 
 use Otis22\VetmanagerApi\Stringify;
 
-class ApiKey implements Stringify
+final class ApiKey implements Stringify
 {
     /**
      * @var string

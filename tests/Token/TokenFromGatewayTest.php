@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests\Token;
+namespace Otis22\VetmanagerApi\Token;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Otis22\VetmanagerApi\Token\FakeCredentials;
-use Otis22\VetmanagerApi\Token\TokenFromGateway;
 use Otis22\VetmanagerApi\Url\FakeUrl;
 use Otis22\VetmanagerApi\VetmanagerApiException;
 use PHPUnit\Framework\TestCase;

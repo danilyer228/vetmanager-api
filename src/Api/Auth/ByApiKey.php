@@ -5,7 +5,7 @@ namespace Otis22\VetmanagerApi\Api\Auth;
 
 use Otis22\VetmanagerApi\Api\Auth;
 
-class ApiKeyAuth implements Auth
+final class ByApiKey implements Auth
 {
     /**
      * @var ApiKey

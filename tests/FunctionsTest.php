@@ -2,17 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests;
+namespace Otis22\VetmanagerApi;
 
 use Otis22\VetmanagerApi\Token\Credentials;
-use Otis22\VetmanagerApi\Url;
-use Otis22\VetmanagerApi\Token;
 use PHPUnit\Framework\TestCase;
-
-use function Otis22\VetmanagerApi\url;
-use function Otis22\VetmanagerApi\url_test_env;
-use function Otis22\VetmanagerApi\credentials;
-use function Otis22\VetmanagerApi\token;
 
 class FunctionsTest extends TestCase
 {

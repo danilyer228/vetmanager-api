@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests\Api;
+namespace Otis22\VetmanagerApi\Api;
 
 use Otis22\VetmanagerApi\VetmanagerApiException;
 use PHPUnit\Framework\TestCase;
-use Otis22\VetmanagerApi\Api\Model;
 
 class ModelTest extends TestCase
 {

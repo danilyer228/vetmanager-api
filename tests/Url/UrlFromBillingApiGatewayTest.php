@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests\Url;
+namespace Otis22\VetmanagerApi\Url;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Otis22\VetmanagerApi\Url\BillingApiUrl;
-use Otis22\VetmanagerApi\Url\Domain;
-use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
 use Otis22\VetmanagerApi\VetmanagerApiException;
 use PHPUnit\Framework\TestCase;
 

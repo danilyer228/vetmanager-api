@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Tests\Api\Auth;
+namespace Otis22\VetmanagerApi\Api\Auth;
 
 use PHPUnit\Framework\TestCase;
-use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 
 class ApiKeyTest extends TestCase
 {
