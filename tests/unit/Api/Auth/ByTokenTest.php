@@ -12,7 +12,7 @@ use Otis22\VetmanagerApi\Api\Auth\ByToken;
 class ByTokenTest extends TestCase
 {
 
-    public function testAsAssoc()
+    public function testAsAssoc(): void
     {
         $this->assertArrayHasKey(
             "X-USER-TOKEN",

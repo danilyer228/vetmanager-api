@@ -7,7 +7,7 @@ namespace Otis22\VetmanagerApi\Api\HTTP\URI;
 use Otis22\VetmanagerApi\Api\HTTP\URI;
 use Otis22\VetmanagerApi\Api\Model;
 
-class URIWithId implements URI
+class WithId implements URI
 {
     /**
      * @var Model
@@ -34,7 +34,9 @@ class URIWithId implements URI
      */
     public function asString(): string
     {
-        return strval($this->asString()) . "/" . strval($this->id);
+        return strval(new RestApiPrefix())
+            . strval($this->model) . "/"
+            . strval($this->id);
     }
 
     /**

@@ -10,7 +10,10 @@
   </coverage>
   <testsuites>
     <testsuite name="main">
-      <directory>./tests</directory>
+      <directory>./tests/unit</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory>./tests/integration</directory>
     </testsuite>
   </testsuites>
   <logging/>

@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class QueryTest extends TestCase
 {
 
-    public function testAsAssoc()
+    public function testAsAssoc(): void
     {
         $this->assertArrayHasKey(
             'key',

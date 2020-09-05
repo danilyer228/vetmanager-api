@@ -14,7 +14,7 @@ class Model implements Stringify
      */
     private $model;
     /**
-     * @var array
+     * @var array<string>
      */
     private $validModels = [
         'invoice',

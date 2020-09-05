@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class ByApiKeyTest extends TestCase
 {
 
-    public function testAsAssoc()
+    public function testAsAssoc(): void
     {
         $this->assertArrayHasKey(
             'X-REST-API-KEY',

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Api\HTTP;
+namespace Otis22\VetmanagerApi\Api\HTTP\Headers;
 
 use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 use Otis22\VetmanagerApi\Api\Auth\ByApiKey;
 use PHPUnit\Framework\TestCase;
 
-class HeadersTest extends TestCase
+class WithAuthAndParamsTest extends TestCase
 {
 
-    public function testAsAssocContainsAuthInfo()
+    public function testAsAssocContainsAuthInfo(): void
     {
         $this->assertArrayHasKey(
             'X-REST-API-KEY',
             (
-                new Headers(
+                new WithAuthAndParams(
                     new ByApiKey(new ApiKey('test')),
                     []
                 )
@@ -24,12 +24,12 @@ class HeadersTest extends TestCase
         );
     }
 
-    public function testAsAssocContainsOtherHeaders()
+    public function testAsAssocContainsOtherHeaders(): void
     {
         $this->assertArrayHasKey(
             'testname',
             (
-            new Headers(
+            new WithAuthAndParams(
                 new ByApiKey(
                     new ApiKey('test')
                 ),

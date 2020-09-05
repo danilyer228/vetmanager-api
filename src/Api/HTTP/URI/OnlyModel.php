@@ -7,7 +7,7 @@ namespace Otis22\VetmanagerApi\Api\HTTP\URI;
 use Otis22\VetmanagerApi\Api\HTTP\URI;
 use Otis22\VetmanagerApi\Api\Model;
 
-class URIOnlyModel implements URI
+class OnlyModel implements URI
 {
     /**
      * @var Model
@@ -28,7 +28,8 @@ class URIOnlyModel implements URI
      */
     public function asString(): string
     {
-        return strval($this->model);
+        return strval(new RestApiPrefix())
+            . strval($this->model);
     }
 
     /**
