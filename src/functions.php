@@ -51,3 +51,12 @@ function token(Credentials $credentials, Url $url): Token
         new Client()
     );
 }
+
+function not_empty_env(string $env_name): string
+{
+    $value = getenv($env_name);
+    if ($value === false) {
+        throw new VetmanagerApiException("{$env_name} can not be empty");
+    }
+    return $value;
+}

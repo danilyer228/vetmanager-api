@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Otis22\VetmanagerApi\Api\HTTP\Headers;
 use Psr\Http\Message\ResponseInterface;
 use Otis22\VetmanagerApi\Api\HTTP\Query;
-use Otis22\VetmanagerApi\Api\HTTP\URI;
+use Otis22\VetmanagerApi\Url;
 
 class GetRequest implements Request
 {
@@ -18,9 +18,9 @@ class GetRequest implements Request
      */
     private $httpClient;
     /**
-     * @var URI
+     * @var Url
      */
-    private $uri;
+    private $url;
     /**
      * @var Headers
      */
@@ -33,14 +33,14 @@ class GetRequest implements Request
     /**
      * GetRequest constructor.
      * @param ClientInterface $httpClient
-     * @param URI $uri
+     * @param Url $url
      * @param Headers $headers
      * @param Query $query
      */
-    public function __construct(ClientInterface $httpClient, URI $uri, Headers $headers, Query $query)
+    public function __construct(ClientInterface $httpClient, Url $url, Headers $headers, Query $query)
     {
         $this->httpClient = $httpClient;
-        $this->uri = $uri;
+        $this->url = $url;
         $this->headers = $headers;
         $this->query = $query;
     }
@@ -54,7 +54,7 @@ class GetRequest implements Request
     {
         return $this->httpClient->request(
             "GET",
-            $this->uri->asString(),
+            $this->url->asString(),
             [
                 'query' => $this->query->asAssoc(),
                 'headers' => $this->headers->asAssoc()
