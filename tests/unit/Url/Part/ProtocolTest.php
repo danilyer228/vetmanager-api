@@ -1,6 +1,6 @@
 <?php
 
-namespace Otis22\VetmanagerApi\Url;
+namespace Otis22\VetmanagerApi\Url\Part;
 
 use PHPUnit\Framework\TestCase;
 

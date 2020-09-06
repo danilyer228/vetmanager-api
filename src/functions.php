@@ -12,7 +12,7 @@ use Otis22\VetmanagerApi\Token\LoginPasswordCredentials;
 use Otis22\VetmanagerApi\Token\Password;
 use Otis22\VetmanagerApi\Token\TokenFromGateway;
 use Otis22\VetmanagerApi\Url\BillingApiUrl;
-use Otis22\VetmanagerApi\Url\Domain;
+use Otis22\VetmanagerApi\Url\Part\Domain;
 use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
 
 function create_url_from_billing_api_gateway(string $domainName, string $billingApiUrl): Url

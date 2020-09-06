@@ -9,7 +9,7 @@ use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 use Otis22\VetmanagerApi\Api\Auth\ByApiKey;
 use Otis22\VetmanagerApi\Api\HTTP\Query;
 use Otis22\VetmanagerApi\Url\BillingApiUrl;
-use Otis22\VetmanagerApi\Url\Domain;
+use Otis22\VetmanagerApi\Url\Part\Domain;
 use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
 use Otis22\VetmanagerApi\Url\UrlWithURI;
 use PHPUnit\Framework\TestCase;

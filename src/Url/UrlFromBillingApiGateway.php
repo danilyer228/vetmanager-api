@@ -7,6 +7,8 @@ namespace Otis22\VetmanagerApi\Url;
 use GuzzleHttp\ClientInterface;
 use Otis22\VetmanagerApi\Url;
 use Otis22\VetmanagerApi\VetmanagerApiException;
+use Otis22\VetmanagerApi\Url\Part\Protocol;
+use Otis22\VetmanagerApi\Url\Part\Domain;
 
 final class UrlFromBillingApiGateway implements Url
 {

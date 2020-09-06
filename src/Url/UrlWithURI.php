@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Url;
 
-use Hoa\Compiler\Exception\FinalStateHasNotBeenReached;
 use Otis22\VetmanagerApi\Api\HTTP\URI;
 use Otis22\VetmanagerApi\Url;
 
