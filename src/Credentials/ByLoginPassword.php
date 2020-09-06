@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Token;
+namespace Otis22\VetmanagerApi\Credentials;
 
-final class LoginPasswordCredentials implements Credentials
+use Otis22\VetmanagerApi\Credentials;
+
+final class ByLoginPassword implements Credentials
 {
     /**
      * @var Login

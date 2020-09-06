@@ -9,8 +9,9 @@ use Otis22\VetmanagerApi\Token;
 use Otis22\VetmanagerApi\Url;
 use Otis22\VetmanagerApi\VetmanagerApiException;
 use Psr\Http\Message\ResponseInterface;
+use Otis22\VetmanagerApi\Credentials;
 
-final class TokenFromGateway implements Token
+final class FromGateway implements Token
 {
     /**
      * @var Credentials
@@ -98,7 +99,7 @@ final class TokenFromGateway implements Token
         $responseText = strval($response->getBody());
         $json = \json_decode($responseText);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \Exception("Invalid json response: {$responseText}");
+            throw new VetmanagerApiException("Invalid json response: {$responseText}");
         }
         return $json;
     }

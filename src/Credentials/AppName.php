@@ -2,34 +2,33 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Token;
+namespace Otis22\VetmanagerApi\Credentials;
 
 use Otis22\VetmanagerApi\Stringify;
 
-final class Login implements Stringify
+final class AppName implements Stringify
 {
     /**
      * @var string
      */
-    protected $login;
+    private $appName;
 
     /**
-     * Login constructor.
+     * AppName constructor.
      *
-     * @param string $login
+     * @param string $appName
      */
-    public function __construct(string $login)
+    public function __construct(string $appName)
     {
-        $this->login = $login;
+        $this->appName = $appName;
     }
-
 
     /**
      * @inheritDoc
      */
     public function asString(): string
     {
-        return $this->login;
+        return $this->appName;
     }
 
     /**

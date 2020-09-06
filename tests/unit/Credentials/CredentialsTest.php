@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Token;
+namespace Otis22\VetmanagerApi\Credentials;
 
 use PHPUnit\Framework\TestCase;
 
@@ -14,7 +14,7 @@ class CredentialsTest extends TestCase
             in_array(
                 'test',
                 (
-                    new LoginPasswordCredentials(
+                    new ByLoginPassword(
                         new Login("test"),
                         new Password("test"),
                         new AppName("test")

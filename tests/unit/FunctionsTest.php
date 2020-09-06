@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi;
 
-use Otis22\VetmanagerApi\Token\Credentials;
+use Otis22\VetmanagerApi\Credentials;
 use PHPUnit\Framework\TestCase;
 
 class FunctionsTest extends TestCase

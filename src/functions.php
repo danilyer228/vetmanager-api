@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Otis22\VetmanagerApi;
 
 use GuzzleHttp\Client;
-use Otis22\VetmanagerApi\Token\AppName;
-use Otis22\VetmanagerApi\Token\Credentials;
-use Otis22\VetmanagerApi\Token\Login;
-use Otis22\VetmanagerApi\Token\LoginPasswordCredentials;
-use Otis22\VetmanagerApi\Token\Password;
+use Otis22\VetmanagerApi\Credentials\AppName;
+use Otis22\VetmanagerApi\Credentials\Login;
+use Otis22\VetmanagerApi\Credentials\ByLoginPassword;
+use Otis22\VetmanagerApi\Credentials\Password;
 use Otis22\VetmanagerApi\Url\Part\Domain;
-use Otis22\VetmanagerApi\Token\TokenFromGateway;
+use Otis22\VetmanagerApi\Token;
 
 function create_url_from_billing_api_gateway(string $domainName, string $billingApiUrl): Url
 {
@@ -34,7 +33,7 @@ function url_test_env(string $domainName): Url
 
 function credentials(string $login, string $password, string $app_name): Credentials
 {
-    return new LoginPasswordCredentials(
+    return new ByLoginPassword(
         new Login($login),
         new Password($password),
         new AppName($app_name)
@@ -43,7 +42,7 @@ function credentials(string $login, string $password, string $app_name): Credent
 
 function token(Credentials $credentials, Url $url): Token
 {
-    return new TokenFromGateway(
+    return new Token\FromGateway(
         $credentials,
         $url,
         new Client()

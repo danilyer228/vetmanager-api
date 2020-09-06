@@ -6,11 +6,12 @@ namespace Otis22\VetmanagerApi\Api\Auth;
 
 use Otis22\VetmanagerApi\Api\Auth;
 use Otis22\VetmanagerApi\Token;
+use Otis22\VetmanagerApi\Credentials\AppName;
 
 final class ByToken implements Auth
 {
     /**
-     * @var Token\AppName
+     * @var AppName
      */
     private $appName;
     /**
@@ -20,10 +21,10 @@ final class ByToken implements Auth
 
     /**
      * TokenAuth constructor.
-     * @param Token\AppName $appName
+     * @param AppName $appName
      * @param Token $token
      */
-    public function __construct(Token\AppName $appName, Token $token)
+    public function __construct(AppName $appName, Token $token)
     {
         $this->appName = $appName;
         $this->token = $token;

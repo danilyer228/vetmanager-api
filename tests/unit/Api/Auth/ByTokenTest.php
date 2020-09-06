@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Tests\Api\Auth;
 
-use Otis22\VetmanagerApi\Token\AppName;
-use Otis22\VetmanagerApi\Token\FakeToken;
+use Otis22\VetmanagerApi\Credentials\AppName;
+use Otis22\VetmanagerApi\Token;
 use PHPUnit\Framework\TestCase;
 use Otis22\VetmanagerApi\Api\Auth\ByToken;
 
@@ -19,7 +19,7 @@ class ByTokenTest extends TestCase
             (
                 new ByToken(
                     new AppName("test"),
-                    new FakeToken()
+                    new Token\Concrete('fake')
                 )
             )->asAssoc()
         );

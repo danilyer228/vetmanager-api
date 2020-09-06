@@ -6,8 +6,21 @@ namespace Otis22\VetmanagerApi\Token;
 
 use Otis22\VetmanagerApi\Token;
 
-final class FakeToken implements Token
+final class Concrete implements Token
 {
+    /**
+     * @var string
+     */
+    private $token;
+
+    /**
+     * Concrete constructor.
+     * @param string $token
+     */
+    public function __construct(string $token)
+    {
+        $this->token = $token;
+    }
 
     /**
      * @inheritDoc
