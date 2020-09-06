@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Otis22\VetmanagerApi\Url\FakeUrl;
+use Otis22\VetmanagerApi\Url;
 use Otis22\VetmanagerApi\VetmanagerApiException;
 use PHPUnit\Framework\TestCase;
 
@@ -42,7 +42,7 @@ class TokenFromGatewayTest extends TestCase
             strval(
                 new TokenFromGateway(
                     new FakeCredentials(),
-                    new FakeUrl(),
+                    new Url\Concrete('https://fake.url'),
                     new Client(['handler' => $handlerStack])
                 )
             )
@@ -67,7 +67,7 @@ class TokenFromGatewayTest extends TestCase
         $handlerStack = HandlerStack::create($mock);
         $token = new TokenFromGateway(
             new FakeCredentials(),
-            new FakeUrl(),
+            new Url\Concrete('https://fake.url'),
             new Client(['handler' => $handlerStack])
         );
         $token->asString();
@@ -88,7 +88,7 @@ class TokenFromGatewayTest extends TestCase
         $handlerStack = HandlerStack::create($mock);
         $token = new TokenFromGateway(
             new FakeCredentials(),
-            new FakeUrl(),
+            new Url\Concrete('https://fake.url'),
             new Client(['handler' => $handlerStack])
         );
         $token->asString();
