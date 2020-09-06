@@ -8,10 +8,8 @@ use GuzzleHttp\Client;
 use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 use Otis22\VetmanagerApi\Api\Auth\ByApiKey;
 use Otis22\VetmanagerApi\Api\HTTP\Query;
-use Otis22\VetmanagerApi\Url\BillingApiUrl;
+use Otis22\VetmanagerApi\Url;
 use Otis22\VetmanagerApi\Url\Part\Domain;
-use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
-use Otis22\VetmanagerApi\Url\UrlWithURI;
 use PHPUnit\Framework\TestCase;
 
 use function Otis22\VetmanagerApi\not_empty_env;
@@ -23,9 +21,9 @@ class GetRequestTest extends TestCase
         $httpClient = new Client();
         $request = new GetRequest(
             $httpClient,
-            new UrlWithURI(
-                new UrlFromBillingApiGateway(
-                    new BillingApiUrl(
+            new Url\WithURI(
+                new Url\FromBillingApiGateway(
+                    new Url\BillingApi(
                         'https://billing-api.vetmanager.cloud'
                     ),
                     new Domain(

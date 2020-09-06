@@ -10,15 +10,13 @@ use Otis22\VetmanagerApi\Token\Credentials;
 use Otis22\VetmanagerApi\Token\Login;
 use Otis22\VetmanagerApi\Token\LoginPasswordCredentials;
 use Otis22\VetmanagerApi\Token\Password;
-use Otis22\VetmanagerApi\Token\TokenFromGateway;
-use Otis22\VetmanagerApi\Url\BillingApiUrl;
 use Otis22\VetmanagerApi\Url\Part\Domain;
-use Otis22\VetmanagerApi\Url\UrlFromBillingApiGateway;
+use Otis22\VetmanagerApi\Token\TokenFromGateway;
 
 function create_url_from_billing_api_gateway(string $domainName, string $billingApiUrl): Url
 {
-    return new UrlFromBillingApiGateway(
-        new BillingApiUrl($billingApiUrl),
+    return new Url\FromBillingApiGateway(
+        new Url\BillingApi($billingApiUrl),
         new Domain($domainName),
         new Client()
     );

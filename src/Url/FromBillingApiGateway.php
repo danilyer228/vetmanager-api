@@ -10,10 +10,10 @@ use Otis22\VetmanagerApi\VetmanagerApiException;
 use Otis22\VetmanagerApi\Url\Part\Protocol;
 use Otis22\VetmanagerApi\Url\Part\Domain;
 
-final class UrlFromBillingApiGateway implements Url
+final class FromBillingApiGateway implements Url
 {
     /**
-     * @var BillingApiUrl
+     * @var BillingApi
      */
     private $billingApiUrl;
     /**
@@ -32,11 +32,11 @@ final class UrlFromBillingApiGateway implements Url
     /**
      * UrlFromBillingApiGateway constructor.
      *
-     * @param BillingApiUrl   $billingApiUrl
+     * @param BillingApi   $billingApiUrl
      * @param Domain          $domain
      * @param ClientInterface $client
      */
-    public function __construct(BillingApiUrl $billingApiUrl, Domain $domain, ClientInterface $client)
+    public function __construct(BillingApi $billingApiUrl, Domain $domain, ClientInterface $client)
     {
         $this->billingApiUrl = $billingApiUrl;
         $this->domain = $domain;

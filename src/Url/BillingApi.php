@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Otis22\VetmanagerApi\Url;
 
-final class BillingApiUrl
+final class BillingApi
 {
     /**
      * @var string

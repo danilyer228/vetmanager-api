@@ -7,7 +7,7 @@ namespace Otis22\VetmanagerApi\Url;
 use Otis22\VetmanagerApi\Api\HTTP\URI;
 use Otis22\VetmanagerApi\Url;
 
-final class UrlWithURI implements Url
+final class WithURI implements Url
 {
     /**
      * @var Url

@@ -35,8 +35,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
         $this->assertEquals(
             "http://test.fake.url",
             strval(
-                new UrlFromBillingApiGateway(
-                    new BillingApiUrl("https://fake.billing.url"),
+                new FromBillingApiGateway(
+                    new BillingApi("https://fake.billing.url"),
                     new Domain('one'),
                     new Client(['handler' => $handlerStack])
                 )
@@ -61,8 +61,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
             ]
         );
         $handlerStack = HandlerStack::create($mock);
-        $hostName = new UrlFromBillingApiGateway(
-            new BillingApiUrl("https://fake.billing.url"),
+        $hostName = new FromBillingApiGateway(
+            new BillingApi("https://fake.billing.url"),
             new Domain('one'),
             new Client(['handler' => $handlerStack])
         );
@@ -84,8 +84,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
             ]
         );
         $handlerStack = HandlerStack::create($mock);
-        $url = new UrlFromBillingApiGateway(
-            new BillingApiUrl("https://fake.billing.url"),
+        $url = new FromBillingApiGateway(
+            new BillingApi("https://fake.billing.url"),
             new Domain('one'),
             new Client(['handler' => $handlerStack])
         );
@@ -104,8 +104,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
             ]
         );
         $handlerStack = HandlerStack::create($mock);
-        $url = new UrlFromBillingApiGateway(
-            new BillingApiUrl("https://fake.billing.url"),
+        $url = new FromBillingApiGateway(
+            new BillingApi("https://fake.billing.url"),
             new Domain('one'),
             new Client(['handler' => $handlerStack])
         );
@@ -125,8 +125,8 @@ final class UrlFromBillingApiGatewayTest extends TestCase
             ]
         );
         $handlerStack = HandlerStack::create($mock);
-        $url = new UrlFromBillingApiGateway(
-            new BillingApiUrl("https://fake.billing.url"),
+        $url = new FromBillingApiGateway(
+            new BillingApi("https://fake.billing.url"),
             new Domain('one'),
             new Client(['handler' => $handlerStack])
         );
