@@ -7,6 +7,8 @@ If you want stable application for Vetmanager REST API, please use this library
 
 ![GitHub CI](https://github.com/otis22/vetmanager-api/workflows/CI/badge.svg)
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/64d692ca1ea129218ccb)
+
 # How to use 
 ## Install
 ```
