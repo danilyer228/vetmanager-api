@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Api;
+namespace Otis22\VetmanagerApi\Api\Request;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use Otis22\VetmanagerApi\Api\HTTP\Body;
 use Otis22\VetmanagerApi\Api\HTTP\Headers;
-use Psr\Http\Message\ResponseInterface;
-use Otis22\VetmanagerApi\Api\HTTP\Query;
 use Otis22\VetmanagerApi\Url;
+use Psr\Http\Message\ResponseInterface;
+use Otis22\VetmanagerApi\Api\Request;
 
-class GetRequest implements Request
+final class Post implements Request
 {
     /**
      * @var ClientInterface
@@ -26,25 +27,24 @@ class GetRequest implements Request
      */
     private $headers;
     /**
-     * @var Query
+     * @var Body
      */
-    private $query;
+    private $body;
 
     /**
-     * GetRequest constructor.
+     * Post constructor.
      * @param ClientInterface $httpClient
      * @param Url $url
      * @param Headers $headers
-     * @param Query $query
+     * @param Body $body
      */
-    public function __construct(ClientInterface $httpClient, Url $url, Headers $headers, Query $query)
+    public function __construct(ClientInterface $httpClient, Url $url, Headers $headers, Body $body)
     {
         $this->httpClient = $httpClient;
         $this->url = $url;
         $this->headers = $headers;
-        $this->query = $query;
+        $this->body = $body;
     }
-
 
     /**
      * @return ResponseInterface
@@ -53,11 +53,11 @@ class GetRequest implements Request
     public function response(): ResponseInterface
     {
         return $this->httpClient->request(
-            "GET",
+            "POST",
             $this->url->asString(),
             [
-                'query' => $this->query->asAssoc(),
-                'headers' => $this->headers->asAssoc()
+                'headers' => $this->headers->asAssoc(),
+                'body' => $this->body->asString()
             ]
         );
     }

@@ -2,24 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Api;
+namespace Otis22\VetmanagerApi\Api\Request;
 
 use GuzzleHttp\Client;
 use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 use Otis22\VetmanagerApi\Api\Auth\ByApiKey;
-use Otis22\VetmanagerApi\Api\HTTP\Query;
-use Otis22\VetmanagerApi\Url;
+use Otis22\VetmanagerApi\Api\Model;
 use Otis22\VetmanagerApi\Url\Part\Domain;
 use PHPUnit\Framework\TestCase;
+use Otis22\VetmanagerApi\Url;
+use Otis22\VetmanagerApi\Api\HTTP;
 
 use function Otis22\VetmanagerApi\not_empty_env;
 
-class GetRequestTest extends TestCase
+class PostTest extends TestCase
 {
+
     public function testResponse(): void
     {
         $httpClient = new Client();
-        $request = new GetRequest(
+        $request = new Post(
             $httpClient,
             new Url\WithURI(
                 new Url\FromBillingApiGateway(
@@ -42,7 +44,12 @@ class GetRequestTest extends TestCase
                     )
                 )
             ),
-            new Query([])
+            new HTTP\Body\JsonFromArray(
+                [
+                    'first_name' => "Test",
+                    'last_name' => "Test"
+                ]
+            )
         );
         $json = json_decode(
             strval(
