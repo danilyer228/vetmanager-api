@@ -27,7 +27,7 @@ final class Concrete implements Token
      */
     public function asString(): string
     {
-        return 'fake';
+        return $this->token;
     }
 
     /**
