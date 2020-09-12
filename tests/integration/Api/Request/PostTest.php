@@ -95,5 +95,6 @@ class PostTest extends TestCase
                 )
             )
         );
+        $request->response();
     }
 }
