@@ -12,11 +12,11 @@ use Otis22\VetmanagerApi\Credentials\Password;
 use Otis22\VetmanagerApi\Url\Part\Domain;
 use PHPUnit\Framework\TestCase;
 use Otis22\VetmanagerApi\Url;
+
 use function Otis22\VetmanagerApi\not_empty_env;
 
 class FromGatewayTest extends TestCase
 {
-
     public function testAsString(): void
     {
         $this->assertTrue(
