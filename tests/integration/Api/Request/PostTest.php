@@ -56,6 +56,44 @@ class PostTest extends TestCase
                 $request->response()->getBody()
             )
         );
+
         $this->assertTrue($json->success);
+        $this->deleteClient(
+            intval(
+                $json->data
+                    ->client[0]
+                    ->id
+            )
+        );
+    }
+
+    private function deleteClient(int $clientForDelete): void
+    {
+        $httpClient = new Client();
+        $request = new Delete(
+            $httpClient,
+            new Url\WithURI(
+                new Url\FromBillingApiGateway(
+                    new Url\BillingApi(
+                        'https://billing-api.vetmanager.cloud'
+                    ),
+                    new Domain(
+                        not_empty_env('TEST_DOMAIN_NAME')
+                    ),
+                    $httpClient
+                ),
+                new HTTP\URI\WithId(
+                    new Model("client"),
+                    $clientForDelete
+                )
+            ),
+            new HTTP\Headers\WithAuth(
+                new ByApiKey(
+                    new ApiKey(
+                        not_empty_env('TEST_API_KEY')
+                    )
+                )
+            )
+        );
     }
 }
