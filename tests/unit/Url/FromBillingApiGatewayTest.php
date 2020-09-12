@@ -12,7 +12,7 @@ use Otis22\VetmanagerApi\VetmanagerApiException;
 use PHPUnit\Framework\TestCase;
 use Otis22\VetmanagerApi\Url\Part\Domain;
 
-final class UrlFromBillingApiGatewayTest extends TestCase
+final class FromBillingApiGatewayTest extends TestCase
 {
     public function testHostNameWithValidUrl(): void
     {
