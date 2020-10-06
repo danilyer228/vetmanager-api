@@ -32,7 +32,7 @@ class Get implements Request
     private $query;
 
     /**
-     * GetRequest constructor.
+     * Get constructor.
      * @param ClientInterface $httpClient
      * @param Url $url
      * @param Headers $headers
@@ -45,7 +45,6 @@ class Get implements Request
         $this->headers = $headers;
         $this->query = $query;
     }
-
 
     /**
      * @return ResponseInterface

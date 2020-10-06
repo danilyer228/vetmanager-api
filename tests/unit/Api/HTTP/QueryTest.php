@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otis22\VetmanagerApi\Api\HTTP;
+namespace Otis22\VetmanagerApi\Api\HTTP\Query;
 
 use PHPUnit\Framework\TestCase;
 
@@ -14,7 +14,7 @@ class QueryTest extends TestCase
         $this->assertArrayHasKey(
             'key',
             (
-                new Query(
+                new FromArray(
                     ['key' => 'value']
                 )
             )->asAssoc()

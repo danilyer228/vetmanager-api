@@ -10,15 +10,10 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 use Otis22\VetmanagerApi\Api\Auth\ByApiKey;
-use Otis22\VetmanagerApi\Url\BillingApi;
 use Otis22\VetmanagerApi\Url\Concrete;
-use Otis22\VetmanagerApi\Url\FromBillingApiGateway;
-use Otis22\VetmanagerApi\Url\Part\Domain;
 use PHPUnit\Framework\TestCase;
 use Otis22\VetmanagerApi\Api\HTTP;
-use Otis22\VetmanagerApi\Api\HTTP\Query;
-
-use function Otis22\VetmanagerApi\not_empty_env;
+use Otis22\VetmanagerApi\Api\HTTP\Query\FromArray;
 
 class RequestTest extends TestCase
 {
@@ -52,7 +47,7 @@ class RequestTest extends TestCase
                                 )
                             )
                         ),
-                        new Query([])
+                        new FromArray([])
                     )
                 )->response()
                     ->getBody()

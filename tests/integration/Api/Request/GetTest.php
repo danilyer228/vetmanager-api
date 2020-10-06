@@ -7,7 +7,6 @@ namespace Otis22\VetmanagerApi\Api\Request;
 use GuzzleHttp\Client;
 use Otis22\VetmanagerApi\Api\Auth\ApiKey;
 use Otis22\VetmanagerApi\Api\Auth\ByApiKey;
-use Otis22\VetmanagerApi\Api\HTTP\Query;
 use Otis22\VetmanagerApi\Url;
 use Otis22\VetmanagerApi\Url\Part\Domain;
 use PHPUnit\Framework\TestCase;
@@ -44,7 +43,7 @@ class GetTest extends TestCase
                     )
                 )
             ),
-            new Query([])
+            new HTTP\Query\FromArray([])
         );
         $json = json_decode(
             strval(
