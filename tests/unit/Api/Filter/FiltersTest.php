@@ -44,10 +44,10 @@ class FiltersTest extends TestCase
             in_array(
                 '>=',
                 (
-                new MoreOrEqualThan(
-                    new Property('test'),
-                    new StringValue(strval(5))
-                )
+                    new MoreOrEqualThan(
+                        new Property('test'),
+                        new StringValue(strval(5))
+                    )
                 )->asAssoc()
             )
         );
@@ -59,10 +59,10 @@ class FiltersTest extends TestCase
             in_array(
                 '<=',
                 (
-                new LessOrEqualThan(
-                    new Property('test'),
-                    new StringValue(strval(5))
-                )
+                    new LessOrEqualThan(
+                        new Property('test'),
+                        new StringValue(strval(5))
+                    )
                 )->asAssoc()
             )
         );
@@ -89,10 +89,10 @@ class FiltersTest extends TestCase
             in_array(
                 '>',
                 (
-                new MoreThan(
-                    new Property('test'),
-                    new StringValue(strval(5))
-                )
+                    new MoreThan(
+                        new Property('test'),
+                        new StringValue(strval(5))
+                    )
                 )->asAssoc()
             )
         );
@@ -104,10 +104,10 @@ class FiltersTest extends TestCase
             in_array(
                 'like',
                 (
-                new Like(
-                    new Property('test'),
-                    new StringValue(strval(5))
-                )
+                    new Like(
+                        new Property('test'),
+                        new StringValue(strval(5))
+                    )
                 )->asAssoc()
             )
         );
@@ -119,10 +119,10 @@ class FiltersTest extends TestCase
             in_array(
                 'in',
                 (
-                new InArray(
-                    new Property('test'),
-                    new ArrayValue([1, 2, 3])
-                )
+                    new InArray(
+                        new Property('test'),
+                        new ArrayValue([1, 2, 3])
+                    )
                 )->asAssoc()
             )
         );
@@ -134,10 +134,10 @@ class FiltersTest extends TestCase
             in_array(
                 'in',
                 (
-                new InArray(
-                    new Property('test'),
-                    new ArrayValue([1, 2, 3])
-                )
+                    new InArray(
+                        new Property('test'),
+                        new ArrayValue([1, 2, 3])
+                    )
                 )->asAssoc()
             )
         );
