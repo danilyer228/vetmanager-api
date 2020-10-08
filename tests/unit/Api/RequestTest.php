@@ -55,6 +55,28 @@ class RequestTest extends TestCase
         );
     }
 
+    public function testGetWithoutQueryResponse(): void
+    {
+        $this->assertJson(
+            strval(
+                (
+                new GetWithoutQuery(
+                    $this->createClient(),
+                    new Concrete('http://fake.url/rest/client'),
+                    new HTTP\Headers\WithAuth(
+                        new ByApiKey(
+                            new ApiKey(
+                                "key"
+                            )
+                        )
+                    )
+                )
+                )->response()
+                    ->getBody()
+            )
+        );
+    }
+
     public function testPutResponse(): void
     {
         $this->assertJson(
