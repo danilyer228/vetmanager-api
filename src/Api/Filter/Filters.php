@@ -34,30 +34,14 @@ final class Filters implements Assocify
     }
 
     /**
-     * @return string
-     */
-    private function decodedFilters(): string
-    {
-        $filters = json_encode(
-            array_map(
-                function (Filter $el) {
-                    return $el->asAssoc();
-                },
-                $this->filters
-            )
-        );
-        if ($filters === false) {
-            throw new \ValueError("Invalid filters");
-        }
-        return $filters;
-    }
-    /**
      * @inheritDoc
      */
     public function asAssoc(): array
     {
         return [
-            'filter' => $this->decodedFilters()
+            'filter' => (
+                new Assocify\ArrayJsonDecoded($this->filters)
+            )->asString()
         ];
     }
 }
