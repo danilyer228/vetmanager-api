@@ -100,7 +100,7 @@ class GetTest extends TestCase
             $json->data->client[0]->id == 1
         );
     }
-    public function testResponseWithFil(): void
+    public function testResponseWithFilter(): void
     {
         $httpClient = new Client();
         $request = new Get(
