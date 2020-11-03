@@ -1,4 +1,9 @@
+## DEPRECATED! Please use following repos instead 
+* [otis22/vetmanager-url](https://github.com/otis22/vetmanager-url)
+
+
 # vetmanager-api
+
 Library for work with Vetmanager REST API. 
 Now url address has format $domain.vetmanager.ru for example: myclinic76.vetmanager.ru 
 But this url format can changes in future. 
