@@ -1,6 +1,6 @@
 ## DEPRECATED! Please use following repos instead 
 * [otis22/vetmanager-url](https://github.com/otis22/vetmanager-url)
-
+* [otis22/vetmanager-token](https://github.com/otis22/vetmanager-token)
 
 # vetmanager-api
 
